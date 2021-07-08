@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+     document.getElementById('res').innerHTML=localStorage.getItem("textvalue");
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+    var name,op1,op2,op3,op4,ans,text_code;
+    function sett(){
+        question=document.getElementById('question').value
+        op1=document.getElementById('op1').value
+        op2=document.getElementById('op2').value
+        op3=document.getElementById('op3').value
+        op4=document.getElementById('op4').value
+        ans=document.getElementById('ans').value
+
+
+
+        $.ajax({
+        url: 'fin',
+        data: { 'mark': mark,'question':question,'op1':op1,'op2':op2,'op3':op3,'op4':op4,'ans':ans , 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+        type: 'POST',
+        success: function (mark) {
+            console.log(mark)
+        }
+        })}
+ </script>
+
+
+<body>
+
+
+
+    {% block content %}
+<form method='post' action="set">{% csrf_token %}
+   
+{% if user.is_authenticated %} Hi {{ user.test_code }}!
+<input type='text' id="question" name="question">
+<input type='text' id="op1" name="op1">
+<input type='text' id="op2" name="op2">
+<input type='text' id="op3" name="op3">
+<input type='text' id="op4" name="op4">
+<input type='text' id="ans" name="ans">
+<p></p>
+<button type="submit" class="btn btn-success" onclick="sett()">new questions</button>
+{% endif %}
+
+    <p> id="res"</p>
+</form>
+{% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function passvalue()
+        {
+            var name=document.getElementById('test_code').value;
+            localStorage.setItem("textvalue",name);
+            return False
+        }
+    </script>
+</head>
+<body>
+<form action="write" method="post">{% csrf_token %}
+    <input type='test_code' id="test_code" name="test_code">
+    <button type="submit"></button>
+</form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<style>
+  body {
+    background-color: lightblue;
+  }
+  </style>
+
+
+
+</head>
+<body>
+
+  
+
+  <label id="username">Enter name/roll no </label>
+<textarea id="roll_no" style="margin: 0px; width: 53px; height: 51px;"></textarea>
+
+
+
+{% for i in s %}
+      <h2 id="question">{{i.question}}</h2>
+
+
+      <p> <input type="radio" name={{i.op1}} id="op1"  value="{{i.op1}}">{{i.op1}}</p>
+     <p>  <input type="radio" name={{i.op2}} id="op2"  value="{{i.op2}}">{{i.op2}}</p>
+     <p>  <input type="radio" name={{i.op3}} id="op3"  value="{{i.op3}}">{{i.op3}}</p>
+      <p> <input type="radio" name={{i.op4}} id="op4"  value="{{i.op4}}">{{i.op4}}</p>
+
+
+     <p> <input type="radio" name={{i.ans}} id="ans22"  value="{{i.ans}}"   style="display:none"></p>
+{% endfor %}
+
+
+
+
+
+
+
+
+<div class="popup center">
+  <div class="icon">
+    <i class="fa fa-check"></i>
+  </div>
+  <div class="title">
+    Success!!
+  </div>
+  <div class="description">
+    PLZ CLICK FOR FINAL SUBMISSION
+  </div>
+  <div class="dismiss-btn">
+
+    <button id="dismiss-popup-btn" onclick="myFunction()">
+      Dismiss
+    </button>
+  </div>
+</div>
+
+<div class="center">
+  <button id="button"  onclick="getanswers()">Final Submit-here</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<b id="UserAnswers"></b>
+<b id="Answers"></b>
+<b id="demo3"></b>
+<b id="demo2"></b>
+
+</body>
+
+
+    {% load static %}
+<script type = "text/javascript"  src = "{% static 'js/script.js' %}"></script>
+ <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+</html>

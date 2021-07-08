@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    {% load static %}
+    <link rel="stylesheet"  href="{%  static  'css/enter_que.css'  %}">
+
+</head>
+<body>
+
+<div class="background">
+        <div class="blur"></div>
+    </div>
+    
+<h1 id="title">New post</h1>
+
+<div id="textbox">   
+
+{% block content %}
+
+<form action="" method="post">{% csrf_token %} {{ form.as_p }}
+<input type="submit" value="Save"> </form>
+{% endblock content %}
+</div> 
+</body>
+
+{% load static %}
+    <link rel="stylesheet"  href="{%  static  'css/style2.css'  %}">
+</html>
